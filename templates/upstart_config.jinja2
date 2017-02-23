@@ -8,12 +8,16 @@ setuid nobody
 setgid nogroup
 chdir {{install_root}}/{{ app_name }}/imagersite
 
-env IMAGER_DB="{{IMAGER_DB}}"
-env DB_USERNAME="{{DB_USERNAME}}"
-env DB_PASSWORD="{{DB_PASSWORD}}"
-env DB_ENDPOINT="{{DB_ENDPOINT}}"
-env SECRET_KEY="{{SECRET_KEY}}"
-env EMAIL_HOST_PASSWORD="{{EMAIL_HOST_PASSWORD}}"
-env ALLOWED_HOSTS="{{ALLOWED_HOSTS}}"
+env IMAGER_DB='{{IMAGER_DB}}'
+env DB_USERNAME='{{DB_USERNAME}}'
+env DB_PASSWORD='{{DB_PASSWORD}}'
+env DB_ENDPOINT='{{DB_ENDPOINT}}'
+env SECRET_KEY='{{SECRET_KEY}}'
+env EMAIL_HOST_PASSWORD='{{EMAIL_HOST_PASSWORD}}'
+env ALLOWED_HOSTS='{{ALLOWED_HOSTS}}'
+env GITHUB_API_KEY="{{GITHUB_API_KEY}}"
+env GITHUB_API_SECRET="{{GITHUB_API_SECRET}}"
+env GOOGLE_OAUTH2_CLIENT_ID="{{GOOGLE_OAUTH2_CLIENT_ID}}"
+env GOOGLE_OAUTH2_CLIENT_SECRET="{{GOOGLE_OAUTH2_CLIENT_SECRET}}"
 
 exec /home/ubuntu/django-imager/bin/gunicorn -b :8080 imagersite.wsgi:application
